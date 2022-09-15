@@ -1,0 +1,228 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,500;0,600;1,600&family=Roboto+Mono:ital,wght@1,200&family=Roboto:ital,wght@1,700&display=swap');
+
+:root {
+    --grey:rgb(163,163,163);
+    --yellow-dark: rgb(92, 18, 212);
+    --font-pop: 'poppins';
+    --font-robot: 'roboto';
+    --green-dark: hsl(22, 89%, 50%);
+    -green-light: rgb(122,255,0);
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    height: 200vh;
+}
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 30px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    transition: 250ms;
+    z-index: 2;
+}
+header ul li {
+    list-style: none;
+    margin: 20px 0;
+}
+header ul li a {
+    text-decoration: none;
+    padding: 10px 30px;
+    margin: 10px;
+    font-size: 1rem;
+    font-family: var(--font-pop);
+    font-weight: 600;
+    color: var(--grey);
+    transition: 250ms;
+    
+    
+}
+header ul li a:hover {
+    color: var(--green-dark);
+}
+
+/* Lets design sticky navbar that will stick on the top scroll */
+.sticky {
+    background: rgba(255,255,255,0.75);
+    box-shadow: 6px 6px 20px rgba(0, 0, 0, 0.123);
+    backdrop-filter: blur(20px);
+}
+.sticky a {
+    color: gray;
+}
+.sticky li a:hover {
+    color: var(--green-light);    
+}
+
+
+.sticky .logo {
+    color: inherit;
+}
+
+.nav-links {
+    position: absolute;
+    right: 0;
+    top: 5vh;
+    width: 60%;
+    height: 70vh;
+    background-color: #000;
+    /* lets remove display flex property from mobile view*/
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    animation: menu-animation 500ms ease-in-out;
+}
+/* we will make nav-links appear only if menu is clicked*/
+/* Lets make class of show nav-links */
+
+.show-navlinks {
+    display: flex;
+}
+.logo {
+    text-decoration: none;
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: var(--grey);
+}
+
+.menu-on {
+    background: url(./assents/icons8-menu.svg);
+    width: 25px;
+    height: 25px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+    transition: 250ms ease-in-out;
+
+}
+.menu-off {
+    padding: 10px;
+    background: url(./assents/menu-close.svg);
+    width: 25px;
+    height: 25px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+    transition: 250ms ease-in-out;
+}
+
+
+@keyframes menu-animation {
+    from {
+        opacity: 0;
+        transform: translateX(100%);
+       
+    } to {
+        opacity: 1;
+        transform: translateX(0%);
+    }
+}
+.featured {
+    width: 100%;
+    height: 100vh;
+    /* background: url(assents/black-cat-middle.jpg); */
+    background: url(assents/bibliametade.jpg);
+    background-color: #000;
+    background-position: center;
+    background-size: cover;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.card {
+    padding: 20px;
+    width: 95%;
+    backdrop-filter: blur(20px);
+    border-radius: 5px;
+}
+.card h2 {
+    text-transform: uppercase;
+    line-height: 1.2;
+    margin-bottom: 10px;
+    color: var(--green-dark);
+    font-family: var(--font-pop);
+    font-weight: 900;
+}
+.card p {
+    font-family: var(--font-robot);
+}
+.btn {
+    padding: 7px 12px;
+    margin-top: 20px;
+    background-color: var(--green-dark);
+    cursor: pointer;
+    border-radius: 10px;
+    font-family: var(--font-pop);
+    border: none;
+}
+.btn:hover {
+    background-color: rgba(33, 197, 41, 0.667);
+    color: #fff;
+    transition: .4s;
+}
+
+
+/* @media screen and (min-width: 1500) {
+    .featured {
+        background: url(assents/black-cat1500.jpg);
+    }
+}  */
+
+
+@media screen and (min-width: 724px) {
+
+    .sticky a {
+        color: #000;
+        
+    }
+    .nav-links {
+        display: flex;
+        flex-direction: row;
+        position: unset;
+        width: auto;
+        height: auto;
+        background: none;
+    }
+    header ul {
+        display: flex;
+    }
+    header ul li {
+        margin: 0;
+    }
+    header ul li a {
+        padding: 0;
+    }
+    .menu-on {
+        display: none;
+    }
+    .logo {
+        font-size: 22px;
+    }
+    .featured {
+        /* background: url(assents/black-cat1500.jpg); */
+        /* background: url(assents/ieadamorg.jpg); */
+        background: url(assents/bíblia-palavra-de-Deus-palavra.jpg);
+        background-position: 10% 10%;
+        align-items: flex-start;
+        justify-content: center;
+    }
+    .card {
+        padding: 20px;
+        margin-left: 2rem;
+        background: none;
+        width: 45%;
+    }
+}
